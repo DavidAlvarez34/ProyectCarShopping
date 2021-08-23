@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online</title>
+
+    <!--Link a Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!--Link Bootstrap con javascript-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <!--Link a hoja de estilos-->
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header> <!--Contiene el encabezado con la barra de navegación-->
+        <nav class="navbar navbar-expand-md navbar-dark fixed bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Carousel</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Categorías
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="#">Categoría</a></li>
+                          <li><a class="dropdown-item" href="#">Otra categoría</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <form class="d-flex">
+                      <input class="form-control me-2" type="search" placeholder="Búscar" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Búscar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="col-sm-12 p-3"> <!--Contenedor con el carrusel-->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="img/carrito.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/carrito2.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/carrito3.jpg" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <section class="py-5 text-center container"> <!--Contenedor con texto-->
+            <div class="row py-lg-5">
+              <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Productos</h1>
+                <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+                <p>
+                  <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                  <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                </p>
+              </div>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light"> <!--Tarjetas de productos-->
+          <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+              <div class="col item">
+                <div class="card shadow-sm ">
+                  <img class="item-image" src="./img/cartel-cosmeticos-corporales-carbon-bambu_1284-20759.jpg" alt="">
+                  <div class="card-body">
+                    <p class="card-text item-title">This is shampoo</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary addToCart">Add Cart</button>
+                      
+                      </div>
+                      <small class="text-muted item-price">$35.65</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col item">
+                <div class="card shadow-sm ">
+                  <img class="item-image" src="./img/cosmetica-infantil-ninos_33099-1549.jpg" alt="">
+                  <div class="card-body">
+                    <p class="card-text item-title">This is shampoo for baby</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary addToCart">Add Cart</button>
+                       
+                      </div>
+                      <small class="text-muted item-price">$78.45</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col item">
+                <div class="card shadow-sm">
+                  <img class="item-image" src="./img/plantilla-cuadro-abstracto-palitos-fragancia-casera-coco_167715-1518.jpg" alt="">
+                  <div class="card-body">
+                    <p class="card-text item-title">This is cream of coco</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary addToCart">Add Cart</button>
+                       
+                      </div>
+                      <small class="text-muted item-price">$56.78</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col item">
+                <div class="card shadow-sm">
+                  <img class="item-image" src="./img/vector-3d-cartel-publicidad-realista-cosmeticos-carbon_33099-1148.jpg" alt="">
+                  <div class="card-body">
+                    <p class="card-text item-title">This is cosmetic for hair</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary addToCart">Add Cart</button>
+                       
+                      </div>
+                      <small class="text-muted item-price">$45.35</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col item">
+                <div class="card shadow-sm">
+                  <img class="item-image" src="./img/plantilla-banner-redes-sociales-producto_160623-141.jpg" alt="">
+                  <div class="card-body">
+                    <p class="card-text item-title">This is a iron</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary addToCart">Add Cart</button>
+                       
+                      </div>
+                      <small class="text-muted item-price">$483.78</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col item">
+                <div class="card shadow-sm">
+                  <img class="item-image" src="./img/plantilla-banner-publicacion-redes-sociales-producto-muebles-color-purpura_154386-131.jpg" alt="">
+                  <div class="card-body">
+                    <p class="card-text item-title">This is a armchair</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary addToCart">Add Cart</button>
+                       
+                      </div>
+                      <small class="text-muted item-price">$1435.43</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col item">
+                <div class="card shadow-sm">
+                  <img class="item-image" src="./img/reloj-color-naranja-marca-producto-social-media-post-banner_154386-52.jpg" alt="">
+                  <div class="card-body">
+                    <p class="card-text item-title">This is a watch</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary addToCart">Add Cart</button>
+                      </div>
+                      <small class="text-muted item-price">$565.45</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col item">
+                <div class="card shadow-sm">
+                  <img class="item-image" src="./img/plantilla-volante-cuadrado-zapatos-redes-sociales-instagram_220159-59.jpg" alt="">
+                  <div class="card-body">
+                    <p class="card-text item-title">This is a tennis</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary addToCart">Add Cart</button>
+                       
+                      </div>
+                      <small class="text-muted item-price">$856.67</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col item">
+                <div class="card shadow-sm">
+                  <img class="item-image" src="./img/banner-publicacion-redes-sociales-producto-marca-heaphone-color-azul_154386-145.jpg" alt="">
+                  <div class="card-body">
+                    <p class="card-text item-title">This is a headphones </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary addToCart">Add Cart</button>
+                        
+                      </div>
+                      <small class="text-muted item-price">$634.89</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="shopping-cart-items shoppingCartItemsContainer">
+            <!-- MOCKUP EXAMPLE (DELETE) -->
+             <div class="row shoppingCartItem"></div>
+            </div>
+            <!-- END MOCKUP EXAMPLE -->
+        </div>
+          <!--ubicar el total-->
+          <div class="row">
+            <div class="col-12">
+                <div class="shopping-cart-total d-flex justify-content-center">
+                    <p class="mb-0 justify-content-center">Total</p>
+                    <p class="ml-4 mb-0 shoppingCartTotal">0€</p>
+                    <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
+                        data-delay="2000">
+                        <div class="toast-header">
+                            <span>✅</span>
+                            <strong class="mr-auto ml-1 text-secondary">Elemento en el carrito</strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="toast-body text-white">
+                            Se aumentó correctamente la cantidad
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
+        data-target="#comprarModal">Comprar</button>
+        </div>
+    </main>
+     <script src="CarShopping.js"></script>
+</body>
+</html>
