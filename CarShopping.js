@@ -1,6 +1,6 @@
 // For para añadir los productos
 let products = document.getElementById("products");
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 15; i++) {
     var contenedor = document.createElement("div");
     contenedor.setAttribute("id", "p" + i);
     var algunTexto = "Algún texto";
@@ -17,7 +17,7 @@ for (let i = 0; i < 50; i++) {
             </div>
         </div>
     </div> `;
-    
+
     contenedor.innerHTML += producto
     products.appendChild(contenedor)
 }
