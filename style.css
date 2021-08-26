@@ -23,3 +23,15 @@ body{
   display: flex;
   justify-content: center;
 }
+
+#products {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+#cards{
+  width: 18rem; 
+  margin-top: 20px;
+}
