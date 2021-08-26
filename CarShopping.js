@@ -1,3 +1,14 @@
+//Conexion con la API
+async function getItems(){
+  let url = "https://api.mercadolibre.com/sites/MLM/search?category=MLM1648"; //Categoría computación
+  // https://api.mercadolibre.com/sites/MLM/categories poner en postman para ver las otras categorías
+  let resp = await fetch(url);
+  const data = await resp.json();
+  let item_M = data['results'];
+  console.log(item_M);
+}
+
+
 // For para añadir los productos
 let products = document.getElementById("products");
 for (let i = 0; i < 15; i++) {
