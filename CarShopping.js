@@ -79,8 +79,8 @@ class ShoppingCart {
     const shoppingCartRow = document.createElement("div");
     //cambiar los elementos
     const shoppingCartContent = `
-   <div class="row shoppingCartItem">
-                    <div class="col-6">
+   <div class="col-3 shoppingCartItem">
+                    <div class="col-3">
                         <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
                             <img src='${itemImage}' class="shopping-cart-image" width="80px" height="80px">
                             <h6 class="shopping-cart-item-title shoppingCartItemTitle text-truncate ml-3 mb-0">${itemTitle}
