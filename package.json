@@ -1,0 +1,17 @@
+{
+  "name": "proyectcarshopping",
+  "version": "1.0.0",
+  "description": "es un proyecto de pruebas",
+  "main": "CarShopping.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git"
+   
+  },
+  "author": "David Orea Alvarez y Monica",
+  "license": "ISC"
+ 
+ 
+}

@@ -40,3 +40,12 @@ body{
   width: 18rem; 
   margin-top: 20px;
 }
+
+#categorias{
+  background-color: #212529;
+  color: white;
+}
+
+.dropdown-item{
+  color:#ffffff;
+}

@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MONDAV tienda online</title>
+    <title>PCs Gamer</title>
 
     <!--Link a Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <!--Link Bootstrap con javascript-->
-	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <!--Link a hoja de estilos-->
     <link rel="stylesheet" href="/style.css">
     <!--Link a Font awesome (iconos)-->
@@ -60,66 +60,29 @@
         </nav>
     </header>
 
-    <main>
-      <div class="container-fluid" id="carousel">
-        <div class="col-sm-9 p-3"> <!--Contenedor con el carrusel-->
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="img/laptop.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="img/monitor.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="img/pcGamer.jpg" class="d-block w-100" alt="...">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+    <section class="py-3 text-center container"> <!--Contenedor con texto-->
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h3 class="fw-light">PCs Gamer</h3>
         </div>
-      </div>
+    </section>
 
-        <section class="py-5 text-center container"> <!--Contenedor con texto-->
-            <div class="row py-lg-5">
-              <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Productos</h1>
-                <p class="lead text-muted">Aquí podras encontrar todo tipo de productos de computación que necesites, desde las PC ya completas hasta cada uno de sus componentes.</p>
-              </div>
-            </div>
-        </section>
-
-       <!--Tarjetas de Productos-->
-       <div class="container">
+    <!--Tarjetas de Productos-->
+    <div class="container ">
         <div class="row hola" id="products">
           
         </div>
-      </div>
-    </main>
+    </div>
 
     <br>
     <!--Pie de página-->
     <footer class="footer mt-auto py-3 bg-dark">
-      <div class="container">
-        <p class="float-end"><a href="#">Regresar al inicio</a></p>
-        <p class="text-muted">&copy; MONDAV 2021 Todos los derechos reservados.</p>
-      </div>
+        <div class="container">
+          <p class="float-end"><a href="#">Regresar al inicio</a></p>
+          <p class="text-muted">&copy; MONDAV 2021 Todos los derechos reservados.</p>
+        </div>
     </footer>
-
+  
     <script src="CarShopping.js"></script> <!--Conexion con js-->
     
 </body>
-
 </html>
