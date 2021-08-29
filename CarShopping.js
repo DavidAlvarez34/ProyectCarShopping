@@ -1,19 +1,65 @@
 class ShoppingCart {
-  addToShoppingCartButtons;
-  shoppingCartItemsContainer;
-  comprarButton;
   constructor() {
     this.addToShoppingCartButtons = document.querySelectorAll(".addToCart");
     this.shoppingCartItemsContainer = document.querySelector(
       ".shoppingCartItemsContainer"
     );
-   this.comprarButton = document.querySelector('.comprarButton');
+    this.comprarButton = document.querySelector(".comprarButton");
   }
 
   inform(mensaje) {
     console.log(mensaje);
   }
   startArticle() {
+    const HTMLResponse=document.querySelector('.hola');
+    async function getItems() {
+      let url = "https://api.mercadolibre.com/sites/MLM/search?category=MLM1648"; //Categoría computación
+      // https://api.mercadolibre.com/sites/MLM/categories poner en postman para ver las otras categorías
+      let resp = await fetch(url);
+      const data = await resp.json();
+      //let item_M = data['results'][2]['title'];
+      let item_M = data["results"];
+      let tpl=``;
+      console.log(item_M);
+      for (let i= 0; i < item_M.length; i++) {
+        tpl=`<div class="col-4 item">
+       <div class="card shadow-sm">
+         <img class="item-image" src="./img/plantilla-cuadro-abstracto-palitos-fragancia-casera-coco_167715-1518.jpg" alt="">
+         <div class="card-body">
+           <p class="card-text item-title">${item_M[i].title}</p>
+           <div class="d-flex justify-content-between align-items-center">
+             <div class="btn-group">
+               <button type="button" class="btn btn-sm btn-outline-secondary addToCart">Add Cart</button>
+              
+             </div>
+             <small class="text-muted item-price">$56.78</small>
+           </div>
+         </div>
+       </div>
+     </div>`
+     HTMLResponse.innerHTML +=`${tpl}`;
+     }
+     
+      //const tpl=item_M.map((user)=>`<li>${user.title}</li>`)
+      /*const tpl=item_M.map((user)=>`<div class="col item">
+      <div class="card shadow-sm">
+        <img class="item-image" src="./img/plantilla-cuadro-abstracto-palitos-fragancia-casera-coco_167715-1518.jpg" alt="">
+        <div class="card-body">
+          <p class="card-text item-title">${user.title}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary addToCart">Add Cart</button>
+             
+            </div>
+            <small class="text-muted item-price">$56.78</small>
+          </div>
+        </div>
+      </div>
+    </div>`)*/
+      
+      
+    }
+    /*
     this.addToShoppingCartButtons.forEach((addToCartButton) => {
       //creamos una funcion por cada click
       addToCartButton.addEventListener("click", (event) => {
@@ -25,7 +71,8 @@ class ShoppingCart {
         const itemPrice = item.querySelector(".item-price").textContent;
         this.addArticle(itemTitle, itemPrice, itemImage);
       }); //que este a la escucha
-    });
+    });*/
+    getItems();
   }
   addArticle(itemTitle, itemPrice, itemImage) {
     const shoppingCartRow = document.createElement("div");
@@ -74,45 +121,45 @@ class ShoppingCart {
     //updateShoppingCartTotal();//actualiza los precios
   }
   getTotal() {
-    let total=0;
-    const shoppingCartTotal=document.querySelector('.shopping-cart-total');
-    const shoppingCartItems=document.querySelectorAll('.shoppingCartItem')//selecciona a todos los elementos que tengan la clase
+    let total = 0;
+    const shoppingCartTotal = document.querySelector(".shopping-cart-total");
+    const shoppingCartItems = document.querySelectorAll(".shoppingCartItem"); //selecciona a todos los elementos que tengan la clase
     //obtenemos el precio
-    shoppingCartItems.forEach(shoppingCartItem=>{
-        const shoppingCartItemPriceElement = shoppingCartItem.querySelector('.shoppingCartItemPrice')
-        //transforma a texto y quita el signo del euro por vacio para convertir a numero y poder sumar
-        const shoppingCartItemPrice=Number(shoppingCartItemPriceElement.textContent.replace('$',''));//obtener el texto        
-        const shoppingCartItemQuantityElement=shoppingCartItem.querySelector('.shoppingCartItemQuantity');//obtener el input
-        //obtener el valor
-        const shoppingCartItemQuantity=Number( shoppingCartItemQuantityElement.value);
-        //calcula el total de todos los productos
-        total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
-        
+    shoppingCartItems.forEach((shoppingCartItem) => {
+      const shoppingCartItemPriceElement = shoppingCartItem.querySelector(
+        ".shoppingCartItemPrice"
+      );
+      //transforma a texto y quita el signo del euro por vacio para convertir a numero y poder sumar
+      const shoppingCartItemPrice = Number(
+        shoppingCartItemPriceElement.textContent.replace("$", "")
+      ); //obtener el texto
+      const shoppingCartItemQuantityElement = shoppingCartItem.querySelector(
+        ".shoppingCartItemQuantity"
+      ); //obtener el input
+      //obtener el valor
+      const shoppingCartItemQuantity = Number(
+        shoppingCartItemQuantityElement.value
+      );
+      //calcula el total de todos los productos
+      total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
     });
     //agregar el total
-    shoppingCartTotal.innerHTML = `${total.toFixed(2)}$`
+    shoppingCartTotal.innerHTML = total;
     console.log(total);
   }
   //Funcion para que los numeros sean positivos
-  quantityChange(event){
-    const input=event.target;
+  quantityChange(event) {
+    const input = event.target;
     //validar para no bajar a cero
     /*if (input.value<=0){
         input.value=1
     }*/
     //con ternarios
-    input.value <= 0 ? (input.value=1):null;
-}
+    input.value <= 0 ? (input.value = 1) : null;
+  }
   removeArticle() {
     this.articles.pop();
     this.getTotal();
-  }
-
-  pay() {
-    this.comprarButton.addEventListener('click',()=>{
-        this.shoppingCartItemsContainer.innerHTML='';
-        this.getTotal();//actualiza el total
-    });
   }
 
   emptyCart() {
@@ -124,7 +171,7 @@ class ShoppingCart {
 
 const carrito = new ShoppingCart();
 carrito.startArticle();
-carrito.pay()
+carrito.pay();
 //const addToShoppingCartButtons = document.querySelectorAll('.addToCart');//Busca el boton que añade al elemento
 
 // let camisa = ["Camisa", 350.00]
