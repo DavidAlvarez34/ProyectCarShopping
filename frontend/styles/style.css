@@ -22,7 +22,7 @@ body{
 #carousel{
   display: flex;
   justify-content: center;
-  background-image: url('img/fondo.png');
+  background-image: url('/frontend/img/fondo.png');
   height: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
