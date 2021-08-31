@@ -20,6 +20,7 @@ class ShoppingCart {
       const data = await resp.json();
       //let item_M = data['results'][2]['title'];
       let item_M = data["results"];
+      
       let tpl=``;
       //console.log(item_M);
       for (let i= 0; i < 15; i++) {
