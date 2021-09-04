@@ -171,4 +171,4 @@ class ShoppingCart {
     
     const carrito = new ShoppingCart();
     carrito.startArticle();
-    carrito.pay()
+    //carrito.pay()
