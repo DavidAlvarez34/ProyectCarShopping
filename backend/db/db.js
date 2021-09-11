@@ -25,7 +25,7 @@ const nuevoProducto = function(id,nombre,cantidad,precio){
 }
 
 const buscaProducto = function (id) {
-    if(Cart.hasOwnProperty(id)){
+    if(Cart.hasOwnProperty(id)){//booleano id si esta
         Cart[id].cantidad ++;
         return true;
     }else{
@@ -36,11 +36,11 @@ const buscaProducto = function (id) {
 const borraProducto = function (id) {
     if(Cart.hasOwnProperty(id)){
         console.log(Cart[id]);
-    if (Cart[id].cantidad  > 1) {
+    if (Cart[id].cantidad  > 1) {//cantidad mayor a uno
         Cart[id].cantidad  = Cart[id].cantidad  - 1;
         return true
     } else {
-        delete Cart[id]
+        delete Cart[id]//borra los elementos que tengan ese is
         return true
      } 
     }

@@ -1,8 +1,8 @@
-const rateLimit = require('express-rate-limit');
+const rateLimit = require('express-rate-limit');//limitador de peticiones
 
 const corsOption = {
     origin : function (origin, callback) {
-        callback(null, true)
+        callback(null, true)//cors
         if (process.env.listaBlanca.indexOf(origin) !== -1){
             callback(null, true)
         }else {
