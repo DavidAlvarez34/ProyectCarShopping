@@ -19,7 +19,7 @@ log = function (req,res,next) {
 
 Autenticar = function (req,res,next) {
     const {nombre,codigo,clave} = req.body;
-    if(clave == "monDav"){
+    if(clave == process.env.claveApi){
         return next()
     }
     else{

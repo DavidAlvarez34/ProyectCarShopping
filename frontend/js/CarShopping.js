@@ -40,12 +40,11 @@ class ShoppingCart {
         
     </div> `
      HTMLResponse.innerHTML +=`${tpl}`;
-     }
-      
-      
+     } 
     }
     getItems();
   }
+
   addArticle(itemTitle, itemPrice, itemImage) {
     const shoppingCartRow = document.createElement("div");
     //cambiar los elementos

@@ -34,14 +34,14 @@ app.post('/cart',midd.Autenticar, function (req, res) {
             db.respuesta = {
                 codigo: 200,
                 error: false,
-                mensaje: 'Producto añadido'
+                mensaje: 'Se agregó un producto identico al carrito.'
             }
         } else {
             db.nuevoProducto(req.body.id, req.body.nombre,req.body.cantidad,req.body.precio)
             db.respuesta = {
                 codigo: 200,
                 error: false,
-                mensaje: 'Producto agregado'
+                mensaje: 'Producto agregado al carrito.'
             }
         }
     }
@@ -54,13 +54,13 @@ app.delete('/cart/:id',midd.Autenticar, function (req, res) {
             db.respuesta = {
             codigo: 200,
             error: false,
-            mensaje: 'Producto eliminado'
+            mensaje: 'Producto eliminado del carrito.'
         }
     } else {
         db.respuesta = {
             codigo: 421,
             error: true,
-            mensaje: 'Producto no existente'
+            mensaje: 'Producto no existente.'
         }
     }
     res.send(db.respuesta);
