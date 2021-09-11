@@ -25,7 +25,7 @@ class ShoppingCart {
       //console.log(item_M);
       for (let i= 0; i < 15; i++) {
         tpl=`
-        <div class="card shadow-sm" id="cards">
+        <div class="card shadow-sm col-4" id="cards">
         <img class="item-image" src="${item_M[i].thumbnail}" alt="">
         <div class="card-body">
         
