@@ -40,38 +40,10 @@ class ShoppingCart {
        HTMLResponse.innerHTML +=`${tpl}`;
        }
        
-        //const tpl=item_M.map((user)=>`<li>${user.title}</li>`)
-        /*const tpl=item_M.map((user)=>`<div class="col item">
-        <div class="card shadow-sm">
-          <img class="item-image" src="./img/plantilla-cuadro-abstracto-palitos-fragancia-casera-coco_167715-1518.jpg" alt="">
-          <div class="card-body">
-            <p class="card-text item-title">${user.title}</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary addToCart">Add Cart</button>
-               
-              </div>
-              <small class="text-muted item-price">$56.78</small>
-            </div>
-          </div>
-        </div>
-      </div>`)*/
-        
+       
         
       }
-      /*
-      this.addToShoppingCartButtons.forEach((addToCartButton) => {
-        //creamos una funcion por cada click
-        addToCartButton.addEventListener("click", (event) => {
-          const button = event.target; //es una referencia al objeto en el cual se lanzo el evento.
-          const item = button.closest(".item"); //devuelve el ascendiente más cercano al elemento actual
-          //obtener el texto de una etiqueta html
-          const itemImage = item.querySelector(".item-image").src;
-          const itemTitle = item.querySelector(".item-title").textContent;
-          const itemPrice = item.querySelector(".item-price").textContent;
-          this.addArticle(itemTitle, itemPrice, itemImage);
-        }); //que este a la escucha
-      });*/
+      
       getItems();
     }
     addArticle(itemTitle, itemPrice, itemImage) {
@@ -151,9 +123,6 @@ class ShoppingCart {
     quantityChange(event) {
       const input = event.target;
       //validar para no bajar a cero
-      /*if (input.value<=0){
-          input.value=1
-      }*/
       //con ternarios
       input.value <= 0 ? (input.value = 1) : null;
     }

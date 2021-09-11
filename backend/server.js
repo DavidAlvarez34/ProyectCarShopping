@@ -1,8 +1,8 @@
 const express = require("express");
 const dotenv = require('dotenv');
-const db = require('./db/db');
-const midd = require('./middlewares/midd');
-const cors = require('cors');
+const db = require('./db/db');//modulo de los comnponentes de la base de datos
+const midd = require('./middlewares/midd');//modulos de autenticacion
+const cors = require('cors');//seguridad
 const app = express();
 dotenv.config();
 
