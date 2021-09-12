@@ -11,9 +11,10 @@ class ShoppingCart {
     console.log(mensaje);
   }
   startArticle() {
+    
     const HTMLResponse=document.querySelector('.hola');
     async function getItems() {
-      
+     
       let url = "https://api.mercadolibre.com/sites/MLM/search?category=MLM1648"; //Categoría computación
       // https://api.mercadolibre.com/sites/MLM/categories poner en postman para ver las otras categorías
       let resp = await fetch(url);
@@ -32,7 +33,7 @@ class ShoppingCart {
             <p class="card-text item-title">${item_M[i].title}</p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary addToCart"><i class="fas fa-cart-plus"></i> Agregar al carrito</button>
+                    <button type="button" onclick="carrito.miAlerta()" class="btn btn-sm btn-outline-secondary addToCart"><i class="fas fa-cart-plus"></i> Agregar al carrito</button>
                 </div>
                 <small class="text-muted item-price">$ ${item_M[i].price}</small>
             </div>
@@ -42,9 +43,15 @@ class ShoppingCart {
      HTMLResponse.innerHTML +=`${tpl}`;
      }
       
-      
     }
+    
     getItems();
+   
+   
+  }
+  miAlerta(event) {
+    event.preventDefault();
+    alert("Se ah dado clic al enlace pero el sitio no ah sido abierto");
   }
   addArticle(itemTitle, itemPrice, itemImage) {
     const shoppingCartRow = document.createElement("div");
@@ -138,6 +145,10 @@ class ShoppingCart {
     for (let i = this.articles.length; i > 0; i--) {
       this.articles.pop();
     }
+  }
+  miAlerta() {
+    
+    alert("Se ah dado clic al enlace pero el sitio no ah sido abierto");
   }
 }
   

@@ -29,14 +29,6 @@ body{
   background-size: cover;
 }
 
-#products {
-  display: flex;
-  margin-right: 10px;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-
 
 
 #categorias{
