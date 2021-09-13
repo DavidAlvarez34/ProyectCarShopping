@@ -12,10 +12,15 @@ class ShoppingCart {
   }
 
   startArticle() {
+    
     const HTMLResponse=document.querySelector('.hola');
     async function getItems() {
+
       
       //let url = await fetch('http://localhost:3000/inicio'); //Categoría computación
+=======
+     
+>>>>>>> main
       let url = "https://api.mercadolibre.com/sites/MLM/search?category=MLM1648"; //Categoría computación
       let resp = await fetch(url);
       const data = await resp.json();
@@ -26,14 +31,14 @@ class ShoppingCart {
       //console.log(articles.results);
       for (let i= 0; i < 15; i++) {
         tpl=`
-        <div class="card shadow-sm" id="cards">
+        <div class="card shadow-sm col-4" id="cards">
         <img class="item-image" src="${item_M[i].thumbnail}" alt="">
         <div class="card-body">
         
             <p class="card-text item-title">${item_M[i].title}</p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary addToCart"><i class="fas fa-cart-plus"></i> Agregar al carrito</button>
+                    <button type="button" onclick="carrito.miAlerta()" class="btn btn-sm btn-outline-secondary addToCart"><i class="fas fa-cart-plus"></i> Agregar al carrito</button>
                 </div>
                 <small class="text-muted item-price">$ ${item_M[i].price}</small>
             </div>
@@ -41,9 +46,19 @@ class ShoppingCart {
         
     </div> `
      HTMLResponse.innerHTML +=`${tpl}`;
+
      } 
+     }
+
     }
+    
     getItems();
+   
+   
+  }
+  miAlerta(event) {
+    event.preventDefault();
+    alert("Se ah dado clic al enlace pero el sitio no ah sido abierto");
   }
 
   addArticle(itemTitle, itemPrice, itemImage) {
@@ -138,6 +153,10 @@ class ShoppingCart {
     for (let i = this.articles.length; i > 0; i--) {
       this.articles.pop();
     }
+  }
+  miAlerta() {
+    
+    alert("Se ah dado clic al enlace pero el sitio no ah sido abierto");
   }
 }
   
