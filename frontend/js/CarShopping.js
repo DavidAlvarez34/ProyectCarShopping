@@ -41,8 +41,10 @@ class ShoppingCart {
         
     </div> `
      HTMLResponse.innerHTML +=`${tpl}`;
+
+     } 
      }
-      
+
     }
     
     getItems();
@@ -53,6 +55,7 @@ class ShoppingCart {
     event.preventDefault();
     alert("Se ah dado clic al enlace pero el sitio no ah sido abierto");
   }
+
   addArticle(itemTitle, itemPrice, itemImage) {
     const shoppingCartRow = document.createElement("div");
     //cambiar los elementos
