@@ -21,211 +21,187 @@
   <body>
     
     <div class="container">
-      <main>
-        <div class="py-5 text-center">
-          <img class="d-block mx-auto mb-4" src="img/icono2.png" alt="" width="122" height="73">
-          <h2>Formulario de pago</h2>
-        </div>
-    
-        <div class="row g-3">
-          <div class="col-md-5 col-lg-4 order-md-last">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-              <span class="text-muted"><i class="fas fa-shopping-cart"></i> Tu carrito</span>
-              <span class="badge bg-secondary rounded-pill">3</span>
-            </h4>
-            <ul class="list-group mb-3">
-              <li class="list-group-item d-flex justify-content-between lh-sm">
-                <div>
-                  <h6 class="my-0">Monto Total</h6>
-                  
-            </ul>
-          </div>
-    
-          <div class="col-md-7 col-lg-8">
-            <h4 class="mb-3"><i class="fas fa-route"></i> Dirección de envio</h4>
-            <form id="myform" class="needs-validation"  novalidate>
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <label for="firstName" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Escribe tu nombre" value="" required>
-                  <div class="invalid-feedback">
-                    
-                  </div>
-                  <div id="invalid-feedback-name">
-                    
-                  </div>
+    <main>
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="img/icono2.png" alt="" width="122" height="73">
+        <h2>Formulario de pago</h2>
+      </div>
+
+        <div class="col-12">
+
+          <h4 class="mb-3"><i class="fas fa-route"></i> Dirección de envio</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row g-3">
+
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Se requiere un nombre válido.
                 </div>
-    
-                <div class="col-sm-6">
-                  <label for="lastName" class="form-label">Apellido</label>
-                  <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="" required>
-                  <div class="invalid-feedback">
-                    Se requiere un apellido válido.
-                  </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Se requiere un apellido válido.
                 </div>
-    
-                <div class="col-12">
-                  <label for="username" class="form-label">Nombre de usuario</label>
-                  <div class="input-group has-validation">
-                    <span class="input-group-text">@</span>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
-                  <div class="invalid-feedback">
-                    Tu nombre de usuario es obligatorio.
-                    </div>
-                  </div>
+              </div>
+
+              <div class="col-6">
+                <label for="email" class="form-label">E-mail <span class="text-muted">(Opcional)</span></label>
+                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                <div class="invalid-feedback">
+                  Ingrese una dirección de correo electrónico válida para recibir actualizaciones de envío.
                 </div>
-    
-                <div class="col-12">
-                  <label for="email" class="form-label">E-mail</label>
-                  <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com" required>
-                  <div class="invalid-feedback">
-                    Ingrese una dirección de correo electrónico válida para recibir actualizaciones de envío.
-                  </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                <div class="invalid-feedback">
+                  Por favor introduzca su direccion de envio.
                 </div>
-    
-                <div class="col-12">
-                  <label for="address" class="form-label">Dirección</label>
-                  <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St" required>
-                  <div class="invalid-feedback">
-                    Por favor introduzca su direccion de envio.
-                  </div>
-                </div>
-    
+              </div>
+
+              <form id="f1" name="f1">
                 <div class="col-md-5">
                   <label for="country" class="form-label">Estado</label>
-                  <select class="form-select" id="country" required>
-                    <option value="">Elegir...</option>
-                    <option>Aguascalientes</option>
-                    <option>Baja California</option>
-                    <option>Baja California Sur</option>
-                    <option>Campeche</option>
-                    <option>Chiapas</option>
-                    <option>Chihuahua</option>
-                    <option>Coahuila</option>
-                    <option>Colima</option>
-                    <option>Durango</option>
-                    <option>Guanajuato</option>
-                    <option>Guerrero</option>
-                    <option>Hidalgo</option>
-                    <option>Jalisco</option>
-                    <option>Estado de México</option>
-                    <option>Michoacán de Ocampo</option>
-                    <option>Morelos</option>
-                    <option>Nayarit</option>
-                    <option>Nuevo León</option>
-                    <option>Oaxaca</option>
-                    <option>Puebla</option>
-                    <option>Querétaro</option>
-                    <option>Quintana Roo</option>
-                    <option>San Luis Potosí</option>
-                    <option>Sinaloa</option>
-                    <option>Sonora</option>
-                    <option>Tabasco</option>
-                    <option>Tamaulipas</option>
-                    <option>Tlaxcala</option>
-                    <option>Veracruz</option>
-                    <option>Yucatán</option>
-                    <option>Zacatecas</option>
+                  <select class="form-select" id="estado" onchange="filtrado();" required>
+                    <option value="0">Elegir...</option>
+                    <option value="1">Aguascalientes</option>
+                    <option value="2">Baja California</option>
+                    <option value="3">Baja California Sur</option>
+                    <option value="4">Campeche</option>
+                    <option value="5">Ciudad de México</option>
+                    <option value="6">Chiapas</option>
+                    <option value="7">Chihuahua</option>
+                    <option value="8">Coahuila</option>
+                    <option value="9">Colima</option>
+                    <option value="10">Durango</option>
+                    <option value="11">Guanajuato</option>
+                    <option value="12">Guerrero</option>
+                    <option value="13">Hidalgo</option>
+                    <option value="14">Jalisco</option>
+                    <option value="15">Estado de México</option>
+                    <option value="16">Michoacán</option>
+                    <option value="17">Morelos</option>
+                    <option value="18">Nayarit</option>
+                    <option value="19">Nuevo León</option>
+                    <option value="20">Oaxaca</option>
+                    <option value="21">Puebla</option>
+                    <option value="22">Querétaro</option>
+                    <option value="23">Quintana Roo</option>
+                    <option value="24">San Luis Potosí</option>
+                    <option value="25">Sinaloa</option>
+                    <option value="26">Sonora</option>
+                    <option value="27">Tabasco</option>
+                    <option value="28">Tamaulipas</option>
+                    <option value="29">Tlaxcala</option>
+                    <option value="30">Veracruz</option>
+                    <option value="31">Yucatán</option>
+                    <option value="32">Zacatecas</option>
                   </select>
                   <div class="invalid-feedback">
                     Seleccione un estado válido.
                   </div>
                 </div>
-    
+
                 <div class="col-md-4">
                   <label for="state" class="form-label">Delegación o Municipio</label>
-                  <select class="form-select" id="state" required>
-                    <option value="">Elegir...</option>
-                    <option>...</option>
+                  <select class="form-select" id="municipios" required>
+                    <option value="0">Sin asignar</option>
                   </select>
                   <div class="invalid-feedback">
                     Seleccione una delegación o municipio válido.
                   </div>
                 </div>
-    
-                <div class="col-md-3">
-                  <label for="zip" class="form-label">Código postal</label>
-                  <input type="text" class="form-control" form="code_post_area" id="zip" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Código postal requerido.
-                  </div>
-                </div>
-              </div>
-    
-              <hr class="my-4">
-    
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="save-info">
-                <label class="form-check-label" for="save-info">Guardar esta información para la próxima vez.</label>
-              </div>
-    
-              <hr class="my-4">
-    
-              <h4 class="mb-3"><i class="far fa-credit-card"></i> Metodo de pago</h4>
-    
-              <div class="my-3">
-                <div class="form-check">
-                  <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                  <label class="form-check-label" for="credit">Tarjeta de crédito</label>
-                </div>
-                <div class="form-check">
-                  <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-                  <label class="form-check-label" for="debit">Tarjeta de débito</label>
-                </div>
-                <div class="form-check">
-                  <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-                  <label class="form-check-label" for="paypal">PayPal</label>
-                </div>
-              </div>
-    
-              <div class="row gy-3">
-                <div class="col-md-6">
-                  <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
-                  <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                  <small class="text-muted">Nombre completo como se muestra en la tarjeta.</small>
-                  <div class="invalid-feedback">
-                    Se requiere el nombre en la tarjeta.
-                  </div>
-                </div>
-    
-                <div class="col-md-6">
-                  <label for="cc-number" class="form-label">Número de tarjeta</label>
-                  <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Se requiere el número de tarjeta.
-                  </div>
-                </div>
-    
-                <div class="col-md-3">
-                  <label for="cc-expiration" class="form-label">Vencimiento</label>
-                  <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Se requiere fecha de vencimiento.
-                  </div>
-                </div>
-    
-                <div class="col-md-3">
-                  <label for="cc-cvv" class="form-label">Código seguridad</label>
-                  <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Se requiere código de seguridad.
-                  </div>
-                </div>
-              </div>
-    
-              <hr class="my-4">
-    
-              <button id="validateData" class="w-100 btn btn-primary btn-lg" type="submit">Continuar con la comprobación</button>
-            </form>
-          </div>
-        </div>
-      </main>
-    </div>
 
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">&copy; 2021 MONDAV</p>
-  </footer>
-</div>
+              </form>
+
+              <div class="col-md-3">
+                <label for="zip" class="form-label">Código postal</label>
+                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <div class="invalid-feedback">
+                  Código postal requerido.
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="save-info">
+              <label class="form-check-label" for="save-info">Guardar esta información para la próxima vez.</label>
+            </div>
+
+            <hr class="my-4">
+
+            <h4 class="mb-3"><i class="far fa-credit-card"></i> Metodo de pago</h4>
+
+            <div class="my-3">
+              <div class="form-check">
+                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                <label class="form-check-label" for="credit">Tarjeta de crédito</label>
+              </div>
+              <div class="form-check">
+                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                <label class="form-check-label" for="debit">Tarjeta de débito</label>
+              </div>
+              <div class="form-check">
+                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                <label class="form-check-label" for="paypal">PayPal</label>
+              </div>
+            </div>
+
+            <div class="row gy-3">
+              <div class="col-md-6">
+                <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
+                <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                <small class="text-muted">Nombre completo como se muestra en la tarjeta.</small>
+                <div class="invalid-feedback">
+                  Se requiere el nombre en la tarjeta.
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="cc-number" class="form-label">Número de tarjeta</label>
+                <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                <div class="invalid-feedback">
+                  Se requiere el número de tarjeta.
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="cc-expiration" class="form-label">Vencimiento</label>
+                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                <div class="invalid-feedback">
+                  Se requiere fecha de vencimiento.
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="cc-cvv" class="form-label">Código seguridad</label>
+                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                <div class="invalid-feedback">
+                  Se requiere código de seguridad.
+                </div>
+              </div>
+            </div>
+            
+            <hr class="my-4">
+
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Continuar con la comprobación</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2021 MONDAV</p>
+      </footer>
+    </div>
 
     <script src="./js/form-validation.js"></script>
   </body>

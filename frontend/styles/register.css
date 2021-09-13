@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+body{
+  background: #b8dcfa;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container{
+  background: #b8dcfa;
+}
+
+#btnRegistro {
+    background-color: rgb(31, 196, 105);
+}
