@@ -22,3 +22,7 @@ body{
 .container{
   background: #b8dcfa;
 }
+
+#btnRegistro {
+    background-color: rgb(31, 196, 105);
+}
