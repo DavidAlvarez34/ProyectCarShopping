@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require('dotenv');
 const db = require('./db/db');//modulo de los comnponentes de la base de datos
 const midd = require('./middlewares/midd');//modulos de autenticacion
+const apis = require('./apis'); //apis de mercado libre
 const cors = require('cors');//seguridad
 const app = express();
 dotenv.config();
@@ -15,6 +16,12 @@ app.use(midd.limitador);
 app.listen(process.env.PORT, function () {
     console.log(`Servidor iniciado en http://${process.env.HOST}:${process.env.PORT}`);
 });
+
+//Endpoint para hacer la conexion a mercado libre
+app.get('/inicio', async(req, res) => {
+    let respProd = await apis.getArticleML("Inicio");
+    res.send(respProd);
+})
 
 //Endpoint para obtener el Carrito
 app.get('/cart',cors(midd.corsOption),function (req, res) {

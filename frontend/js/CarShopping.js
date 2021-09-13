@@ -10,19 +10,20 @@ class ShoppingCart {
   inform(mensaje) {
     console.log(mensaje);
   }
+
   startArticle() {
     const HTMLResponse=document.querySelector('.hola');
     async function getItems() {
       
+      //let url = await fetch('http://localhost:3000/inicio'); //Categoría computación
       let url = "https://api.mercadolibre.com/sites/MLM/search?category=MLM1648"; //Categoría computación
-      // https://api.mercadolibre.com/sites/MLM/categories poner en postman para ver las otras categorías
       let resp = await fetch(url);
       const data = await resp.json();
       //let item_M = data['results'][2]['title'];
       let item_M = data["results"];
       
       let tpl=``;
-      //console.log(item_M);
+      //console.log(articles.results);
       for (let i= 0; i < 15; i++) {
         tpl=`
         <div class="card shadow-sm" id="cards">
