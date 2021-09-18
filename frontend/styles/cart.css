@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  body {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    background: rgb(68,255,211);
+    background: linear-gradient(135deg, rgba(68,255,211,1) 0%, rgba(118,225,255,1) 40%, rgba(109,232,246,1) 60%, rgba(68,255,211,1) 100%);
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    background-color: #f3f1f1;
+  }
+
+#btnComprar {
+    background-color: rgb(27, 160, 87);
+}   
+
+  /* #abf3f8 */
+  
