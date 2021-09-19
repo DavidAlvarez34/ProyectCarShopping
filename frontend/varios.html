@@ -47,8 +47,25 @@
                       <li class="nav-item">
                         <a class="nav-link" href="login.html">Iniciar sesión</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i></a> <!--Icono de carrito-->
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-shopping-cart"></i></a> <!--Icono del carrito-->
+                        <ul class="dropdown-menu" aria-labelledby="./navbarDropdown" id="productsCart">
+                          <table id="lista-carrito" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                </tr>
+                            </thead>
+                          </table>
+                          <div class="shopping-cart-items shoppingCartItemsContainer">
+                            <!-- Productos del carrito -->
+                          </div>
+
+                          <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
+                          <a href="./checkout.html"><input type="button" id="btnComprar" class="btn btn-success comprarButton" type="submit" value="✔ Comprar"></a>
+                        </ul>
                       </li>
                     </ul>
                     <form class="d-flex">
@@ -71,6 +88,11 @@
         <div class="row hola" id="products">
           
         </div>
+    </div>
+
+    <div class="shopping-cart-total d-flex align-items-center">
+      <!-- <p class="mb-0">Total</p>
+      <p class="ml-4 mb-0 shoppingCartTotal">$</p> -->
     </div>
 
     <br>

@@ -15,10 +15,12 @@
   }
 
 body{
-    background: #b8dcfa;
     font-family: 'Open Sans', sans-serif;
+    background: rgb(68,255,211);
+    background: linear-gradient(135deg, rgba(68,255,211,1) 0%, rgba(118,225,255,1) 40%, rgba(109,232,246,1) 60%, rgba(68,255,211,1) 100%);
 }
 
 .container{
-    background: #b8dcfa;
+  background: rgb(68,255,211);
+  background: linear-gradient(135deg, rgba(68,255,211,1) 0%, rgba(118,225,255,1) 40%, rgba(109,232,246,1) 60%, rgba(68,255,211,1) 100%);
 }
