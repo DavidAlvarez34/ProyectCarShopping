@@ -10,12 +10,9 @@ class ShoppingCart {
   startArticle() {
     const HTMLResponse=document.querySelector('.hola');
     async function getItems() {
-      let url = "https://api.mercadolibre.com/sites/MLM/search?category=MLM1655"; //Categoría monitores
-      let resp = await fetch(url);
-      const data = await resp.json();
-      //let item_M = data['results'][2]['title'];
-      let item_M = data["results"];
-      
+      let url = await fetch('http://localhost:3000/startDisplay');
+      const data = await url.json(url);
+      let item_M = data['results'];
       let tpl=``;
       //console.log(articles.results);
       for (let i= 0; i < 50; i++) {

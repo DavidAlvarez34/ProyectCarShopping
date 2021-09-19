@@ -2,23 +2,43 @@ const axios = require('axios');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const getArticleML = async(opc) => {
-    let url;
-    switch (opc) {
-        case "Inicio":
-            url = process.env.computacionML;
-            break;
-        default:
-            break;
-    }
+module.exports.getPoductsApi=async()=>{
+    let result = await axios.get(process.env.computacionML);
+    let getJson = result.data;
+    //console.log(getJson);
+    return getJson;
+}
+module.exports.startComponentsPC=async()=>{
+    let result = await axios.get(process.env.computacionML);
+    let getJson = result.data;
+    //console.log(getJson);
+    return getJson;
+}
 
-    console.log('Inicio axios',url);
-    return (await axios.get(url)
-        .then(response => response = response.data)
-        .catch(function(error){
-            console.log(error);
-        })
-    );
-};
+module.exports.startLaptops=async()=>{
+    let result = await axios.get(process.env.laptopsML);
+    let getJson = result.data;
+    //console.log(getJson);
+    return getJson;
+}
 
-module.exports = {getArticleML};
+module.exports.startDisplay=async()=>{
+    let result = await axios.get(process.env.monitoresML);
+    let getJson = result.data;
+    //console.log(getJson);
+    return getJson;
+}
+
+module.exports.startPc=async()=>{
+    let result = await axios.get(process.env.computadorasML);
+    let getJson = result.data;
+    //console.log(getJson);
+    return getJson;
+}
+
+module.exports.startPeripherals=async()=>{
+    let result = await axios.get(process.env.perifericosML);
+    let getJson = result.data;
+    //console.log(getJson);
+    return getJson;
+}

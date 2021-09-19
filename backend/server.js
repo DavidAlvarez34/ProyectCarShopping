@@ -18,11 +18,30 @@ app.listen(process.env.PORT, function () {
 });
 
 //Endpoint para hacer la conexion a mercado libre
-app.get('/inicio', async(req, res) => {
-    let respProd = await apis.getArticleML("Inicio");
-    res.send(respProd);
-})
-
+app.get('/startMl', async(req, res) => {
+    let respProd = await apis.getPoductsApi()
+    res.json(respProd);
+});
+app.get('/startComponentsPC', async(req, res) => {
+    let respProd = await apis.startComponentsPC()
+    res.json(respProd);
+});
+app.get('/startLaptops', async(req, res) => {
+    let respProd = await apis.startLaptops()
+    res.json(respProd);
+});
+app.get('/startDisplay', async(req, res) => {
+    let respProd = await apis.startDisplay()
+    res.json(respProd);
+});
+app.get('/startPc', async(req, res) => {
+    let respProd = await apis.startPc()
+    res.json(respProd);
+});
+app.get('/startPeripherals', async(req, res) => {
+    let respProd = await apis.startPeripherals()
+    res.json(respProd);
+});
 //Endpoint para obtener el Carrito
 app.get('/cart',cors(midd.corsOption),function (req, res) {
     res.send(db.Cart)
