@@ -3,7 +3,7 @@ const rateLimit = require('express-rate-limit');//limitador de peticiones
 const corsOption = {
     origin : function (origin, callback) {
         callback(null, true)//cors
-        if (process.env.listaBlanca.indexOf(origin) !== -1){
+        if (process.env.LISTA_BLANCA.indexOf(origin) !== -1){
             callback(null, true)
         }else {
             callback(new Error('No autorizado por Cors'))
@@ -19,7 +19,7 @@ log = function (req,res,next) {
 
 Autenticar = function (req,res,next) {
     const {nombre,codigo,clave} = req.body;
-    if(clave == process.env.claveApi){
+    if(clave == process.env.CLAVE_API){
         return next()
     }
     else{

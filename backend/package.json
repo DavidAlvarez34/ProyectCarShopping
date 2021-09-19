@@ -10,5 +10,9 @@
     "type": "git"
   },
   "author": "David Orea Alvarez y Monica",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "sequelize": "^6.6.5",
+    "tedious": "^12.2.0"
+  }
 }
