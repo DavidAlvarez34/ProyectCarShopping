@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 const sequileze = require('../backend/db/conexion');
 const productsView = require('../backend/view/productsView');
+const loginView = require('../backend/view/loginView');
 //const loginView = require('../backend/view/loginView');
 
 const app = express();
@@ -30,4 +31,4 @@ serverStart();
 
 //Iniciamos vistas
 productsView(app);
-//loginView(app);
+loginView(app)
