@@ -143,6 +143,35 @@ class ShoppingCart {
       }
     }
     getItems();
+
+    /*async function buscar(){
+      const HTMLResponse=document.querySelector('.hola');
+      let item = document.getElementById("itemSearch").value;
+      let url = "https://api.mercadolibre.com/sites/MLM/search?q="+item;
+      let res = await fetch(url);
+      const data = await res.json();
+      let item_M = data['results'];
+      console.log(item_M);
+      let tplb=``;
+      //console.log(articles.results);
+      for (let i= 0; i < 15; i++) {
+        tplb=`
+        <div class="card shadow-sm item" id="cards">
+        <img class="item-image" src="${item_M[i].thumbnail}" alt="">
+        <div class="card-body">
+            <p class="card-text item-title">${item_M[i].title}</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary addToCart"><i class="fas fa-cart-plus"></i> Agregar al carrito</button>
+                </div>
+                <small class="text-muted item-price">$ ${item_M[i].price}</small>
+            </div>
+        </div>
+        </div> `
+        HTMLResponse.innerHTML +=`${tplb}`;
+      } 
+    }
+    buscar();*/
   }
 
   // emptyCart() {
@@ -151,6 +180,6 @@ class ShoppingCart {
   //   }
   // }
 }
-  
+
 const carrito = new ShoppingCart();
 carrito.startArticle();

@@ -42,6 +42,7 @@ app.get('/startPeripherals', async(req, res) => {
     let respProd = await apis.startPeripherals()
     res.json(respProd);
 });
+
 //Endpoint para obtener el Carrito
 app.get('/cart',cors(midd.corsOption),function (req, res) {
     res.send(db.Cart)
