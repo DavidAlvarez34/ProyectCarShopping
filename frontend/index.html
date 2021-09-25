@@ -53,24 +53,23 @@
                           <table id="lista-carrito" class="table">
                             <thead>
                                 <tr>
-                                    <th>Producto</th>
-                                    <th>Precio</th>
-                                    <th>Cantidad</th>
+                                    <th>Productos</th>
+                                    <th>de</th>
+                                    <th>tú</th>
+                                    <th>carrito</th>
                                 </tr>
                             </thead>
                           </table>
-                          <div class="shopping-cart-items shoppingCartItemsContainer">
+                          <div id="shoppingCartItemsContainer" class="shopping-cart-items shoppingCartItemsContainer">
                             <!-- Productos del carrito -->
                           </div>
-
-                          <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
                           <a href="./checkout.html"><input type="button" id="btnComprar" class="btn btn-success comprarButton" type="submit" value="✔ Comprar"></a>
                         </ul>
                       </li>
                     </ul>
                     <form class="d-flex">
-                      <input class="form-control me-2" type="search" placeholder="Búscar" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button> <!--Icono de búscar-->
+                      <input id="itemSearch" class="form-control me-2" type="text" placeholder="Búscar" aria-label="Search">
+                      <button class="btn btn-outline-success" onclick="buscar()"><i class="fas fa-search"></i></button> <!--Icono de búscar-->
                     </form>
                 </div>
             </div>
@@ -123,12 +122,24 @@
         <div class="row hola" id="products">
           
         </div>
-      </div>
+       </div>
     </main>
 
     <div class="shopping-cart-total d-flex align-items-center">
       <!-- <p class="mb-0">Total</p>
       <p class="ml-4 mb-0 shoppingCartTotal">$</p> -->
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <img src="./img/logo.png" class="rounded me-2" alt="..." width="32px" height="32px">
+          <strong class="me-auto">MONDAV</strong>
+          <small>Ahora</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">¡Producto agregado al carrito!</div>
+      </div>
     </div>
 
     <br>
