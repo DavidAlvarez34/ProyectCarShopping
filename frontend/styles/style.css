@@ -88,3 +88,7 @@ body{
 #btnComprar {
   background-color: rgb(27, 160, 87);
 }   
+
+#liveToast{
+  background-color: aquamarine;
+}

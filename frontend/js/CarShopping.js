@@ -8,6 +8,7 @@ class ShoppingCart {
   }
 
   startArticle() {
+    var cant = 0;
     const HTMLResponse=document.querySelector('.hola');
     async function getItems() {
       let url = await fetch('http://localhost:3000/startMl');
@@ -45,8 +46,17 @@ class ShoppingCart {
         const item = button.closest('.item');
         
         const itemTitle = item.querySelector('.item-title').textContent;
+        console.log(itemTitle)
         const itemPrice = item.querySelector('.item-price').textContent;
         const itemImage = item.querySelector('.item-image').src;
+
+        //Mandar el toast de agregado al carrito
+        let toast_e = document.getElementById("liveToast");
+        var toast = new bootstrap.Toast(toast_e)
+        toast.show()
+
+        cant = cant+1; //Aumenta la cantidad de productos
+        console.log(cant)
       
         addArticle(itemTitle, itemPrice, itemImage);
       } 
@@ -62,8 +72,6 @@ class ShoppingCart {
                         <div class="col-3">
                             <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
                                 <img src='${itemImage}' class="shopping-cart-image" width="80px" height="80px">
-                                <h6 class="shopping-cart-item-title shoppingCartItemTitle text-truncate ml-3 mb-0">${itemTitle}
-                                </h6>
                             </div>
                         </div>
                         <div class="col-2">
@@ -128,6 +136,8 @@ class ShoppingCart {
         const buttonClicked = event.target; //captura el evento
         buttonClicked.closest(".shoppingCartItem").remove(); //elimina el elemento
         //updateShoppingCartTotal();//actualiza los precios
+        cant = cant - 1;
+        console.log(cant)
       }
 
       //Funcion para que los numeros sean positivos
@@ -173,12 +183,6 @@ class ShoppingCart {
     }
     buscar();*/
   }
-
-  // emptyCart() {
-  //   for (let i = this.articles.length; i > 0; i--) {
-  //     this.articles.pop();
-  //   }
-  // }
 }
 
 const carrito = new ShoppingCart();
