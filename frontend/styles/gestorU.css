@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+body{
+  background: rgb(175,254,209);
+  background: linear-gradient(135deg, rgba(175,254,209,1) 10%, rgba(139,232,254,1) 50%, rgba(213,192,255,1) 90%); 
+}
+
+#contProductos{
+  background-color: aliceblue;
+}
+
+#btnCrear {
+  background-color: rgb(26, 179, 95);
+}
+
+#btnEliminar {
+  background-color: rgb(247, 71, 71);
+}
+
+#contModEli{
+  display: flex;
+  flex-wrap: nowrap;
+}

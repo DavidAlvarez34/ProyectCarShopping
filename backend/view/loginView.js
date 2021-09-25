@@ -1,5 +1,5 @@
-const loginController = require('../controller/loginController');
-
+const loginController = require('../controller/loginController');//importacion
+//rutas
 module.exports = async (app) => {
     //Crear login
     app.post('/createLogin',async(req,res) => {
@@ -7,9 +7,7 @@ module.exports = async (app) => {
         console.log(myLogin);
         res.send(await loginController.createUser(myLogin));
     });
-
-
-    //Mostrar productos
+    //Mostrar login
     app.get('/viewLogin',async(req,res) => {
         res.send(await loginController.listLogin());
     });

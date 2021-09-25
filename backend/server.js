@@ -42,6 +42,12 @@ app.get('/startPeripherals', async(req, res) => {
     let respProd = await apis.startPeripherals()
     res.json(respProd);
 });
+app.post('/startSearch', async(req, res) => {
+    const item= req.body.mydata;
+     let respProd = await apis.startSearch(item)
+
+    res.json(respProd);
+});
 
 //Endpoint para obtener el Carrito
 app.get('/cart',cors(midd.corsOption),function (req, res) {

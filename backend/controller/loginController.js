@@ -1,4 +1,5 @@
 const loginModel = require('../model/loginModel');
+//Modelo
 module.exports.createUser = async (userCreate) => {
     let response = new loginModel();
     let result = await response.create(userCreate);

@@ -1,6 +1,8 @@
 class ShoppingCart {
   constructor() {
-    this.shoppingCartItemsContainer = document.querySelector(".shoppingCartItemsContainer");
+    this.shoppingCartItemsContainer = document.querySelector(
+      ".shoppingCartItemsContainer"
+    );
   }
 
   inform(mensaje) {
@@ -9,15 +11,14 @@ class ShoppingCart {
 
   startArticle() {
     var cant = 0;
-    const HTMLResponse=document.querySelector('.hola');
+    const HTMLResponse = document.querySelector(".hola");
     async function getItems() {
-      let url = await fetch('http://localhost:3000/startMl');
+      let url = await fetch("http://localhost:3000/startMl");
       const data = await url.json(url);
-      let item_M = data['results'];
-      let tpl=``;
-      //console.log(articles.results);
-      for (let i= 0; i < 15; i++) {
-        tpl=`
+      let item_M = data["results"];
+      let tpl = ``;
+      for (let i = 0; i < 15; i++) {
+        tpl = `
         <div class="card shadow-sm item" id="cards">
         <img class="item-image" src="${item_M[i].thumbnail}" alt="">
         <div class="card-body">
@@ -29,41 +30,41 @@ class ShoppingCart {
                 <small class="text-muted item-price">$ ${item_M[i].price}</small>
             </div>
         </div>
-        </div> `
-        HTMLResponse.innerHTML +=`${tpl}`;
-      } 
+        </div> `;
+        HTMLResponse.innerHTML += `${tpl}`;
+      }
 
       const comprarButton = document.querySelector(".comprarButton");
-      comprarButton.addEventListener('click', comprarButtonClicked);
+      comprarButton.addEventListener("click", comprarButtonClicked);
 
       const addToShoppingCartButtons = document.querySelectorAll(".addToCart");
       addToShoppingCartButtons.forEach((addToCartButton) => {
-        addToCartButton.addEventListener('click', addToCartClicked);
+        addToCartButton.addEventListener("click", addToCartClicked);
       });
 
       function addToCartClicked(event) {
         const button = event.target;
-        const item = button.closest('.item');
-        
-        const itemTitle = item.querySelector('.item-title').textContent;
-        console.log(itemTitle)
-        const itemPrice = item.querySelector('.item-price').textContent;
-        const itemImage = item.querySelector('.item-image').src;
+        const item = button.closest(".item");
+
+        const itemTitle = item.querySelector(".item-title").textContent;
+        console.log(itemTitle);
+        const itemPrice = item.querySelector(".item-price").textContent;
+        const itemImage = item.querySelector(".item-image").src;
 
         //Mandar el toast de agregado al carrito
         let toast_e = document.getElementById("liveToast");
-        var toast = new bootstrap.Toast(toast_e)
-        toast.show()
+        var toast = new bootstrap.Toast(toast_e);
+        toast.show();
 
-        cant = cant+1; //Aumenta la cantidad de productos
-        console.log(cant)
-      
+        cant = cant + 1; //Aumenta la cantidad de productos
+        console.log(cant);
+
         addArticle(itemTitle, itemPrice, itemImage);
-      } 
+      }
 
       function addArticle(itemTitle, itemPrice, itemImage) {
         const shoppingCartItemsContainer = document.querySelector(
-          '.shoppingCartItemsContainer'
+          ".shoppingCartItemsContainer"
         );
         const shoppingCartRow = document.createElement("div");
         //cambiar los elementos
@@ -95,19 +96,22 @@ class ShoppingCart {
         shoppingCartRow
           .querySelector(".buttonDelete")
           .addEventListener("click", removeArticle);
-    
+
         shoppingCartRow
           .querySelector(".shoppingCartItemQuantity")
           .addEventListener("change", quantityChange);
-    
-        console.log("Producto añadido")
+
+        console.log("Producto añadido");
         getTotal();
       }
 
       function getTotal() {
         let total = 0;
-        const shoppingCartTotal = document.querySelector(".shopping-cart-total");
-        const shoppingCartItems = document.querySelectorAll(".shoppingCartItem"); //selecciona a todos los elementos que tengan la clase
+        const shoppingCartTotal = document.querySelector(
+          ".shopping-cart-total"
+        );
+        const shoppingCartItems =
+          document.querySelectorAll(".shoppingCartItem"); //selecciona a todos los elementos que tengan la clase
         //obtenemos el precio
         shoppingCartItems.forEach((shoppingCartItem) => {
           const shoppingCartItemPriceElement = shoppingCartItem.querySelector(
@@ -117,9 +121,8 @@ class ShoppingCart {
           const shoppingCartItemPrice = Number(
             shoppingCartItemPriceElement.textContent.replace("$", "")
           ); //obtener el texto
-          const shoppingCartItemQuantityElement = shoppingCartItem.querySelector(
-            ".shoppingCartItemQuantity"
-          ); //obtener el input
+          const shoppingCartItemQuantityElement =
+            shoppingCartItem.querySelector(".shoppingCartItemQuantity"); //obtener el input
           //obtener el valor
           const shoppingCartItemQuantity = Number(
             shoppingCartItemQuantityElement.value
@@ -137,7 +140,7 @@ class ShoppingCart {
         buttonClicked.closest(".shoppingCartItem").remove(); //elimina el elemento
         //updateShoppingCartTotal();//actualiza los precios
         cant = cant - 1;
-        console.log(cant)
+        console.log(cant);
       }
 
       //Funcion para que los numeros sean positivos
@@ -148,40 +151,48 @@ class ShoppingCart {
       }
 
       function comprarButtonClicked() {
-        shoppingCartItemsContainer.innerHTML = '';
+        shoppingCartItemsContainer.innerHTML = "";
         //updateShoppingCartTotal();
       }
     }
     getItems();
-
-    /*async function buscar(){
-      const HTMLResponse=document.querySelector('.hola');
-      let item = document.getElementById("itemSearch").value;
-      let url = "https://api.mercadolibre.com/sites/MLM/search?q="+item;
-      let res = await fetch(url);
-      const data = await res.json();
-      let item_M = data['results'];
-      console.log(item_M);
-      let tplb=``;
-      //console.log(articles.results);
-      for (let i= 0; i < 15; i++) {
-        tplb=`
-        <div class="card shadow-sm item" id="cards">
-        <img class="item-image" src="${item_M[i].thumbnail}" alt="">
-        <div class="card-body">
-            <p class="card-text item-title">${item_M[i].title}</p>
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary addToCart"><i class="fas fa-cart-plus"></i> Agregar al carrito</button>
-                </div>
-                <small class="text-muted item-price">$ ${item_M[i].price}</small>
-            </div>
-        </div>
-        </div> `
-        HTMLResponse.innerHTML +=`${tplb}`;
-      } 
+  }
+  async buscar() {
+    const HTMLResponse = document.querySelector(".hola");
+    HTMLResponse.innerHTML=""
+    let item = document.getElementById("itemSearch").value;
+    let dataInsert = {
+      mydata: item,
+    };
+    let searching = await fetch("http://localhost:3000/startSearch", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataInsert),
+    });
+    let info = await searching;
+    const data = await info.json();
+    let item_M = data["results"];
+    let tplb = ``;
+    //console.log(articles.results);
+    for (let i = 0; i < 15; i++) {
+      tplb = `
+      <div class="card shadow-sm item" id="cards">
+      <img class="item-image" src="${item_M[i].thumbnail}" alt="">
+      <div class="card-body">
+          <p class="card-text item-title">${item_M[i].title}</p>
+          <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary addToCart"><i class="fas fa-cart-plus"></i> Agregar al carrito</button>
+              </div>
+              <small class="text-muted item-price">$ ${item_M[i].price}</small>
+          </div>
+      </div>
+      </div> `;
+      HTMLResponse.innerHTML += `${tplb}`;
     }
-    buscar();*/
   }
 }
 
