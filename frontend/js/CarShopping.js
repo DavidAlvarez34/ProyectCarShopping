@@ -8,7 +8,6 @@ class ShoppingCart {
   }
 
   startArticle() {
-    var cant = 0;
     const HTMLResponse=document.querySelector('.hola');
     async function getItems() {
       let url = await fetch('http://localhost:3000/startMl');
@@ -54,9 +53,6 @@ class ShoppingCart {
         let toast_e = document.getElementById("liveToast");
         var toast = new bootstrap.Toast(toast_e)
         toast.show()
-
-        cant = cant+1; //Aumenta la cantidad de productos
-        console.log(cant)
       
         addArticle(itemTitle, itemPrice, itemImage);
       } 
@@ -106,6 +102,7 @@ class ShoppingCart {
 
       function getTotal() {
         let total = 0;
+        let cant = 0;
         const shoppingCartTotal = document.querySelector(".shopping-cart-total");
         const shoppingCartItems = document.querySelectorAll(".shoppingCartItem"); //selecciona a todos los elementos que tengan la clase
         //obtenemos el precio
@@ -126,18 +123,19 @@ class ShoppingCart {
           );
           //calcula el total de todos los productos
           total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
+          //Aumenta la cantidad de productos
+          cant = cant+shoppingCartItemQuantity; 
         });
         //agregar el total
         shoppingCartTotal.innerHTML = total;
-        console.log(total);
+        console.log("Cantidad total de productos: "+cant)
+        console.log("Total: $"+total);
       }
 
       function removeArticle(event) {
         const buttonClicked = event.target; //captura el evento
         buttonClicked.closest(".shoppingCartItem").remove(); //elimina el elemento
-        //updateShoppingCartTotal();//actualiza los precios
-        cant = cant - 1;
-        console.log(cant)
+        getTotal();//actualiza los precios
       }
 
       //Funcion para que los numeros sean positivos
@@ -145,11 +143,12 @@ class ShoppingCart {
         const input = event.target;
         //validar para no bajar a cero
         input.value <= 0 ? (input.value = 1) : null;
+        getTotal();
       }
 
       function comprarButtonClicked() {
         shoppingCartItemsContainer.innerHTML = '';
-        //updateShoppingCartTotal();
+        getTotal();
       }
     }
     getItems();
