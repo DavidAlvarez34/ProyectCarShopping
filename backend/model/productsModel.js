@@ -17,11 +17,21 @@ module.exports = class productsModel {
         return result[0][0];
     }
     async update (product){
-        let result = await sequelize.query("UPDATE products SET available = " + product.available + " WHERE idProduct = " + product.id + ";");
-        return result;
+        let result = await sequelize.query("SELECT * FROM products WHERE idProduct = " + product.id);
+        if(result[0][0] != undefined){
+            let result = await sequelize.query("UPDATE products SET available = " + product.available + " WHERE idProduct = " + product.id + ";");
+            return result;
+        } else {
+            return "";
+        }
     }
     async delete (productId){
-        let result = await sequelize.query("DELETE FROM products WHERE idProduct = " + productId);
-        return result;
+        let result = await sequelize.query("SELECT * FROM products WHERE idProduct = " + productId);
+        if(result[0][0] != undefined){
+            let result = await sequelize.query("DELETE FROM products WHERE idProduct = " + productId);
+            return result;
+        } else {
+            return "";
+        }
     }
 }

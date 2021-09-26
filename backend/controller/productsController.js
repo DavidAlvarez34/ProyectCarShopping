@@ -15,17 +15,29 @@ module.exports.listProducts = async () => {
 module.exports.findProduct = async (productId) => {
     let response = new productsModel();
     let result = await response.find(productId);
-    return result;
+    if (result) {
+        return result;
+    } else {
+        return "El producto no existe."
+    }
 }
 
 module.exports.updateProduct = async (product) => {
     let response = new productsModel();
     let result = await response.update(product);
-    return "Disponibilidad de producto modificada.";
+    if (result != '') {
+        return "Disponibilidad de producto modificada.";
+    } else {
+        return "El producto no existe."
+    }
 }
 
 module.exports.deleteProduct = async (productId) => {
     let response = new productsModel();
     let result = await response.delete(productId);
-    return "Producto eliminado.";
+    if (result != '') {
+        return "Producto eliminado.";
+    } else {
+        return "El producto no existe."
+    }
 }
