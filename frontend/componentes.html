@@ -67,10 +67,10 @@
                         </ul>
                       </li>
                     </ul>
-                    <form class="d-flex">
-                      <input class="form-control me-2" type="search" placeholder="Búscar" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button> <!--Icono de búscar-->
-                    </form>
+                    <div class="d-flex">
+                      <input id="itemSearch" class="form-control me-2" type="text" placeholder="Búscar" aria-label="Search">
+                      <button class="btn btn-outline-success" onclick="carrito.buscar()"><i class="fas fa-search"></i></button> <!--Icono de búscar-->
+                    </div>
                 </div>
             </div>
         </nav>
@@ -116,6 +116,6 @@
     </footer>
   
     <script src="./js/componentes.js"></script> <!--Conexion con js-->
-    
+    <script src="./js/CarShopping.js"></script> <!--Conexion con js-->
 </body>
 </html>
