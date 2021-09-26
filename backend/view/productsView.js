@@ -13,8 +13,7 @@ module.exports = async (app) => {
     //Enctontrar productos por ID
     app.get('/product/:id',async(req,res) => {
         let productId = req.params.id
-        let productToSend = await productController.findProduct(productId)
-        console.log(productToSend);
+        let productToSend = await productController.findProduct(productId);
         res.send(productToSend);
     });
     //Modificar disponibilidad de productos

@@ -48,15 +48,22 @@ function buscarButtonClicked() {
     async function getProductId() {
         const id = document.getElementById('idProductB'); //obtener el id
         const idProduct = String(id.value); //obtener el valor
+        const nombre=document.getElementById('nameB');
+        const marca=document.getElementById('brandB');
+        const modelo=document.getElementById('modelB');
+        const descripcion=document.getElementById('descriptionB');
+        const precio=document.getElementById('priceB');
+        const disponibilidad=document.getElementById('availableB');
 
-        const HTMLResponse=document.getElementById('nameB');
         let url = await fetch('http://localhost:3000/product/'+idProduct);
-        console.log(url);
         const data = await url.json();
-        console.log(data);
-        // let tpl=``;
-        // tpl=`${data.name}`
-        // HTMLResponse.innerHTML +=`${tpl}`; 
+        
+        nombre.value = data.name;
+        marca.value = data.brand;
+        modelo.value = data.model;
+        descripcion.value = data.description;
+        precio.value = data.price;
+        disponibilidad.value = data.available;
     }
     getProductId();
 }
@@ -64,6 +71,7 @@ function buscarButtonClicked() {
 function mostrarButtonClicked() {
     async function getProducts() {
         const HTMLResponse=document.querySelector('.mProductos');
+        HTMLResponse.innerHTML = '';
         let url = await fetch('http://localhost:3000/products');
         const data = await url.json(url);
         //console.log(data)
