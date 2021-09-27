@@ -1,16 +1,20 @@
-const loginButton = document.querySelector(".btnLogin");
-loginButton.addEventListener('click', loginButtonClicked);
+const registerButton = document.querySelector(".btnRegistro");
+registerButton.addEventListener('click', registerButtonClicked);
 
-function loginButtonClicked() {
-  async function login() {
-      let email = document.getElementById('inputEmail').value;
-      let pass = document.getElementById('inputPassword').value;
-      
+function registerButtonClicked() {
+  async function createUser() {
+      let nombre = document.getElementById('firstName').value;
+      let apellido = document.getElementById('lastName').value;
+      let email = document.getElementById('email').value;
+      let pass = document.getElementById('password').value;
+
       let dataInsert = {
+          nombre: nombre,
+          apellido: apellido,
           email: email,
           userPasword: pass
       };
-      let url = await fetch('http://localhost:3000/login', {
+      let url = await fetch('http://localhost:3000/createLogin', {
           method: "POST",
           mode: "cors",
           headers: {
@@ -18,13 +22,10 @@ function loginButtonClicked() {
           },
           body: JSON.stringify(dataInsert),
       });
-      //Regreso del token
-      let resp = await url;
-      alert("Se ha iniciado sesión")
+      alert("Usuario creado.");
   }
-  login();
+  createUser();
 }
-
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {

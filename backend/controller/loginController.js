@@ -1,4 +1,6 @@
+const jwt = require('jsonwebtoken');
 const loginModel = require('../model/loginModel');
+
 module.exports.createUser = async (userCreate) => {
     let response = new loginModel();
     let result = await response.create(userCreate);
@@ -18,10 +20,21 @@ module.exports.findLogin = async (loginId) => {
 module.exports.updateLogin = async (updateLogin) => {
     let response = new loginModel();
     let result = await response.update(updateLogin);
-    return "PasswordCambiado.";
+    return "Password cambiado.";
 }
 module.exports.deleteLogin = async (loginId) => {
     let response = new  loginModel();
     let result = await response.delete(loginId);
-    return "Login eliminado.";
+    return "Usuario eliminado.";
+}
+
+module.exports.login = async (user) => {
+    let login = new loginModel();
+    let data = await login.findToken(user);
+    if (data) {
+        let token = jwt.sign({data},process.env.SECRETKEY);
+        return token;
+    } else {
+        return "Usuario no autenticado.";
+    }
 }
