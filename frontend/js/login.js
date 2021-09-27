@@ -19,12 +19,11 @@ function loginButtonClicked() {
           body: JSON.stringify(dataInsert),
       });
       //Regreso del token
-      let resp = await url;
-      alert("Se ha iniciado sesión")
+      const data = await url.json(url);
+      console.log(data);
   }
   login();
 }
-
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
