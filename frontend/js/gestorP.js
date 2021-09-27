@@ -38,7 +38,7 @@ function crearButtonClicked() {
             },
             body: JSON.stringify(dataInsert),
         });
-        console.log("Producto creado");
+        alert("Producto creado");
     }
     createProduct();
 }
@@ -60,7 +60,7 @@ function modificarButtonClicked() {
             },
             body: JSON.stringify(dataInsert),
         });
-        console.log("Producto modificado");
+        alert("Producto modificado");
     }
     updateProduct();
 }
@@ -73,7 +73,7 @@ function eliminarButtonClicked() {
         let url = await fetch('http://localhost:3000/deleteProducts/'+idProduct, {
             method: "DELETE"
         });
-        console.log("Producto eliminado");
+        alert("Producto eliminado");
     }
     deleteProduct();
 }
