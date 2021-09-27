@@ -29,7 +29,8 @@ module.exports = async (app) => {
     //Login de usuario para mandar token
     app.post('/login',async(req,res) => {
         let user = req.body;
-        res.send(await loginController.login(user));
-        console.log(await loginController.login(user))
+        let token = await loginController.login(user);
+        res.send(token);
+        console.log(token);
     });
 };
