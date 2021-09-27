@@ -29,11 +29,11 @@
         <div class="row 3">
           <div class="col-12">
             <h4 class="mb-3">Crear producto</h4>
-            <form class="needs-validation" novalidate>
+            <div class="needs-validation" novalidate>
               <div class="row g-3">
                 <div class="col-4">
                   <label for="name" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="name" placeholder="" value="" required>
+                  <input type="text" class="form-control" id="nameC" placeholder="" value="" required>
                   <div class="invalid-feedback">
                     Se requiere un nombre.
                   </div>
@@ -41,7 +41,7 @@
 
                 <div class="col-4">
                   <label for="brand" class="form-label">Marca</label>
-                  <input type="text" class="form-control" id="brand" placeholder="" value="" required>
+                  <input type="text" class="form-control" id="brandC" placeholder="" value="" required>
                   <div class="invalid-feedback">
                     Se requiere una marca.
                   </div>
@@ -49,7 +49,7 @@
 
                 <div class="col-4">
                   <label for="model" class="form-label">Modelo</label>
-                  <input type="text" class="form-control" id="model" placeholder="" value="" required>
+                  <input type="text" class="form-control" id="modelC" placeholder="" value="" required>
                   <div class="invalid-feedback">
                     Se requiere un modelo.
                   </div>
@@ -57,7 +57,7 @@
 
                 <div class="col-8">
                   <label for="description" class="form-label">Descripción</label>
-                  <input type="text" class="form-control" id="description" placeholder="" value="" required>
+                  <input type="text" class="form-control" id="descriptionC" placeholder="" value="" required>
                   <div class="invalid-feedback">
                     Ingrese una descripción.
                   </div>
@@ -65,7 +65,7 @@
 
                 <div class="col-2">
                   <label for="price" class="form-label">Precio</label>
-                  <input type="number" class="form-control" id="price" placeholder="" value="" required>
+                  <input type="number" class="form-control" id="priceC" placeholder="" value="" required>
                   <div class="invalid-feedback">
                     Se requiere un precio.
                   </div>
@@ -73,7 +73,7 @@
 
                 <div class="col-2">
                   <label for="available" class="form-label">Disponibilidad</label>
-                  <input type="number" class="form-control" id="available" placeholder="" value="" required>
+                  <input type="number" class="form-control" id="availableC" placeholder="" value="" required>
                   <div class="invalid-feedback">
                     Ingrese la disponibilidad.
                   </div>
@@ -83,16 +83,16 @@
               <button id="btnCrear" class="w-40 btn btn-primary btn-lg btnCrear" type="submit"><i class="fas fa-plus-circle"></i> Crear</button>
 
               <hr class="my-4">
-            </form>
+            </div>
 
             <div class="col-12" id="contModEli">
               <div class="col-6">
-                <form class="needs-validation" novalidate>
+                <div class="needs-validation" novalidate>
                   <h4 class="mb-3">Modificar producto</h4>
                   <div class="row g-3">
                     <div class="col-4">
                       <label for="idProduct" class="form-label">ID Producto</label>
-                      <input type="number" class="form-control" id="idProduct" placeholder="" value="" required>
+                      <input type="number" class="form-control" id="idProductM" placeholder="" value="" required>
                       <div class="invalid-feedback">
                         Se requiere un ID de producto válido.
                       </div>
@@ -100,7 +100,7 @@
 
                     <div class="col-4">
                       <label for="available" class="form-label">Disponibilidad</label>
-                      <input type="number" class="form-control" id="available" placeholder="" value="" required>
+                      <input type="number" class="form-control" id="availableM" placeholder="" value="" required>
                       <div class="invalid-feedback">
                         Ingrese la disponibilidad.
                       </div>
@@ -110,11 +110,11 @@
                   <button id="btnModificar" class="w-40 btn btn-primary btn-lg btnModificar" type="submit"><i class="fas fa-pencil-alt"></i> Modificar</button>
 
                   <hr class="my-4">
-                </form>
+                </div>
               </div>
 
               <div class="col-6">
-                <form class="needs-validation" novalidate>
+                <div class="needs-validation" novalidate>
                   <h4 class="mb-3">Eliminar producto</h4>
                   <div class="row g-3">
                     <div class="col-4">
@@ -129,7 +129,7 @@
                   <button id="btnEliminar" class="w-40 btn btn-primary btn-lg btnEliminar" type="submit"><i class="fas fa-trash-alt"></i> Eliminar</button>
 
                   <hr class="my-4">
-                </form>
+                </div>
               </div>
             </div>
             

@@ -15,18 +15,52 @@ mostrarPButton.addEventListener('click', mostrarButtonClicked);
 
 function crearButtonClicked() {
     async function createProduct() {
-        // let url = await fetch('http://localhost:3000/createProducts');
-        // const data = await url.json(url);
-        // console.log(data);
+        let nombre = document.getElementById('nameC').value;
+        let marca = document.getElementById('brandC').value;
+        let modelo = document.getElementById('modelC').value;
+        let descripcion = document.getElementById('descriptionC').value;
+        let precio = document.getElementById('priceC').value;
+        let disponibilidad = document.getElementById('availableC').value;
+
+        let dataInsert = {
+            name: nombre,
+            brand: marca,
+            model: modelo,
+            description: descripcion,
+            price: precio,
+            available: disponibilidad
+        };
+        let url = await fetch('http://localhost:3000/createProducts', {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dataInsert),
+        });
+        console.log("Producto creado");
     }
     createProduct();
 }
 
 function modificarButtonClicked() {
     async function updateProduct() {
-        // let url = await fetch('http://localhost:3000/updateProducts');
-        // const data = await url.json(url);
-        // console.log(data);
+        let idProduct = document.getElementById("idProductM").value;
+        let disp = document.getElementById("availableM").value;
+
+        let dataInsert = {
+            id: idProduct,
+            available: disp
+        };
+        let url = await fetch('http://localhost:3000/updateProducts', {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dataInsert),
+        });
+        console.log("Producto modificado");
     }
     updateProduct();
 }
@@ -36,10 +70,10 @@ function eliminarButtonClicked() {
         const id = document.getElementById('idProductE'); //obtener el id
         const idProduct = String(id.value); //obtener el valor
 
-        let url = await fetch('http://localhost:3000/deleteProducts/'+idProduct);
-        console.log(url);
-        const data = await url;
-        console.log(data);
+        let url = await fetch('http://localhost:3000/deleteProducts/'+idProduct, {
+            method: "DELETE"
+        });
+        console.log("Producto eliminado");
     }
     deleteProduct();
 }
