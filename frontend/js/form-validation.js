@@ -1,5 +1,3 @@
-//Select de estados - delegacion/municipio dinamico
-//Aguascalientes
 let opc1 = ["Elegir...","Aguascalientes","Asientos","Calvillo","Cosío","El Llano","Jesús María","Pabellón de Arteaga","Rincón de Romos","San Francisco de los Romo","San José de Gracia","Tepezalá"];
 //Baja California
 let opc2 = ["Elegir...","Ensenada","Mexicali","Playas de Rosarito","San Quintín","Tecate","Tijuana"];
@@ -66,7 +64,7 @@ let opc31 = ["Elegir...","Abalá","Acanceh","Akil","Baca","Bokobá","Buctzotz","
 //Zacatecas
 let opc32 = ["Elegir...","Apozol","Apulco","Atolinga","Benito Juárez","Calera","Cañitas De Felipe Pescador","Concepción Del Oro","Cuauhtémoc","Chalchihuites","Fresnillo","Trinidad García De La Cadena","Genaro Codina","General Enrique Estrada","General Francisco R.Murguía","El Plateado De Joaquín Amaro","General Pánfilo Natera","Guadalupe","Huanusco","Jalpa","Jerez","Jiménez Del Teul","Juan Aldama","Juchipila","Loreto","Luis Moya","Mazapil","Melchor Ocampo","Mezquital Del Oro","Miguel Auza","Momax","Monte Escobedo","Morelos","Moyahua De Estrada","Nochistlán De Mejía","Noria De Ángeles","Ojocaliente","Pánuco","Pinos","Río Grande","Sain Alto","El Salvador","Sombrerete","Susticacán","Tabasco","Tepechitlán","Tepetongo","Teúl De González Ortega","Tlaltenango De Sánchez Román","Valparaíso","Vetagrande","Villa De Cos","Villa García","Villa González Ortega","Villa Hidalgo","Villanueva","Zacatecas","Trancoso","Santa María De La Paz"];
 
-function filtrado(){
+async function filtrado(){
   let est;
   est = document.getElementById('estado').value;
   delMun = document.getElementById('municipios');
@@ -82,6 +80,7 @@ function filtrado(){
       delMun.options[i].value = delegMuni[i];
       delMun.options[i].text = delegMuni[i];
     }
+    console.log(delegMuni);
   } else {
     //Si no habia seleccionado el departamento, se borra todo del select
     delMun.length = 1;
@@ -108,4 +107,85 @@ function filtrado(){
         form.classList.add('was-validated')
       }, false)
     })
-})()
+})() 
+async function createUser(){
+  let name =document.getElementById("firstName").value.toLowerCase();
+  let lastName =document.getElementById("lastName").value.toLowerCase();
+  let itemEmail =document.getElementById("emailCheck").value.toLowerCase();
+  let addressUser =document.getElementById("address").value.toLowerCase();
+  //let stateContry=document.getElementById("estado").value.toLowerCase();
+
+  let select = document.getElementById('estado');
+  let value = select.options[select.selectedIndex].text;
+  let selectMu = document.getElementById('municipios').value;
+  let codePost =document.getElementById("codePost").value.toLowerCase();
+  
+
+  //tarjetade credito
+  const rbs = document.querySelectorAll('input[name="paymentMethod"]');
+  let selectedValue;
+  for (const rb of rbs) {
+      if (rb.checked) {
+          
+          selectedValue = rb.value;
+          console.log(selectedValue);
+          break;
+      }
+  }
+  
+  let cc_name =document.getElementById("cc-name").value.toLowerCase();
+  console.log(cc_name);
+  let cc_number =document.getElementById("cc-number").value.toLowerCase();
+  console.log(cc_number);
+  let cc_expiration =document.getElementById("cc-expiration").value.toLowerCase();
+  console.log(cc_expiration);
+  let cc_cvv =document.getElementById("cc-cvv").value.toLowerCase();
+  console.log(cc_cvv);
+  let dataInsert = {
+   
+    method: selectedValue,
+    cardName: cc_name,
+    numCard: cc_number,
+    dateExpiration: cc_expiration,
+    codeSecurity: cc_cvv
+};
+let url = await fetch('http://localhost:3000/createFormMethod', {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(dataInsert),
+}).then(response =>{ createUserForm(); alert("Producto creado");});
+}
+async function createUserForm(){
+  let name =document.getElementById("firstName").value.toLowerCase();
+  let lastName =document.getElementById("lastName").value.toLowerCase();
+  let itemEmail =document.getElementById("emailCheck").value.toLowerCase();
+  let addressUser =document.getElementById("address").value.toLowerCase();
+  //let stateContry=document.getElementById("estado").value.toLowerCase();
+
+  let select = document.getElementById('estado');
+  let value = select.options[select.selectedIndex].text;
+  let selectMu = document.getElementById('municipios').value;
+  let codePost =document.getElementById("codePost").value.toLowerCase();
+  
+  let dataInsert = {
+   
+    name: name,
+    lastName: lastName,
+    emailForm: itemEmail,
+    addressForm: addressUser,
+    stateForm:value,
+    MunicForm: selectMu,
+    codePost:codePost
+};
+let url = await fetch('http://localhost:3000/createFormUser', {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(dataInsert),
+}).then(response =>{ alert("Producto creado");});
+}

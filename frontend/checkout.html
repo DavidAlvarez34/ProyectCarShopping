@@ -51,7 +51,7 @@
 
               <div class="col-6">
                 <label for="email" class="form-label">E-mail <span class="text-muted">(Opcional)</span></label>
-                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                <input type="email" class="form-control" id="emailCheck" placeholder="you@example.com">
                 <div class="invalid-feedback">
                   Ingrese una dirección de correo electrónico válida para recibir actualizaciones de envío.
                 </div>
@@ -68,7 +68,7 @@
               <!-- <form id="f1" name="f1" class="needs-validation" novalidate> -->
                 <div class="col-md-5">
                   <label for="country" class="form-label">Estado</label>
-                  <select class="form-select" id="estado" onchange="filtrado();" required>
+                  <select class="form-select" id="estado" onchange="filtrado()" required>
                     <option value="0">Elegir...</option>
                     <option value="1">Aguascalientes</option>
                     <option value="2">Baja California</option>
@@ -117,12 +117,11 @@
                     Seleccione una delegación o municipio válido.
                   </div>
                 </div>
-
               <!-- </form> -->
 
               <div class="col-md-3">
                 <label for="zip" class="form-label">Código postal</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <input type="text" class="form-control" id="codePost" placeholder="" required>
                 <div class="invalid-feedback">
                   Código postal requerido.
                 </div>
@@ -140,17 +139,17 @@
 
             <h4 class="mb-3"><i class="far fa-credit-card"></i> Metodo de pago</h4>
 
-            <div class="my-3">
+            <div class="my-3" name="nCredits">
               <div class="form-check">
-                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                <input id="credit" name="paymentMethod"  value="credit"  type="radio" class="form-check-input" checked required>
                 <label class="form-check-label" for="credit">Tarjeta de crédito</label>
               </div>
               <div class="form-check">
-                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                <input id="credit" name="paymentMethod" value="debit"  type="radio" class="form-check-input" required>
                 <label class="form-check-label" for="debit">Tarjeta de débito</label>
               </div>
               <div class="form-check">
-                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                <input id="paypal" name="paymentMethod"  value="paypal" type="radio" class="form-check-input" required>
                 <label class="form-check-label" for="paypal">PayPal</label>
               </div>
             </div>
@@ -192,7 +191,7 @@
             
             <hr class="my-4">
 
-            <button class="w-100 btn btn-primary btn-lg" type="submit">Continuar con la comprobación</button>
+            <a class="w-100 btn btn-primary btn-lg" onclick="createUser()"  type="submit" href="graciasCompra.html">Continuar con la comprobación</a>
           </div>
         </div>
       </div>
@@ -202,7 +201,8 @@
         <p class="mb-1">&copy; 2021 MONDAV</p>
       </footer>
     </div>
-
-    <script src="./js/form-validation.js"></script>
+    
+    <script async defer src="./js/form-validation.js"></script>
+    
   </body>
 </html>

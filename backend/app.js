@@ -4,7 +4,8 @@ require('dotenv').config();
 const sequileze = require('../backend/db/conexion');
 const productsView = require('../backend/view/productsView');
 const loginView = require('../backend/view/loginView');
-
+const FormView = require('../backend/view/FormView');
+const FormUserView = require('../backend/view/FormView');
 const app = express();
 
 app.use(express.json())
@@ -30,4 +31,6 @@ serverStart();
 
 //Iniciamos vistas
 productsView(app);
-loginView(app)
+loginView(app);
+FormView(app)
+FormUserView(app)
