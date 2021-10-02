@@ -19,8 +19,15 @@ function loginButtonClicked() {
           body: JSON.stringify(dataInsert),
       });
       //Regreso del token
-      const data = await url.json(url);
-      console.log(data);
+      const data = await url.json();
+      console.log(data.token);
+      if (data.token != "Usuario no autenticado.") {
+        localStorage.setItem('Mondav_token',JSON.stringify(data.token)) //Manda el token al local storage
+        console.log( 'token again', await JSON.parse(localStorage.getItem('Mondav_token')))//Obtiene el token desde el local storage
+        window.location="./index.html"; //Redirigir a la pagina
+      } else {
+        alert("Usuario o contraseña incorrectos.")
+      }
   }
   login();
 }
