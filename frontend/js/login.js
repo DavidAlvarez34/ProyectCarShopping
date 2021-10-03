@@ -22,8 +22,12 @@ function loginButtonClicked() {
       const data = await url.json();
       console.log(data.token);
       if (data.token != "Usuario no autenticado.") {
-        localStorage.setItem('Mondav_token',JSON.stringify(data.token)) //Manda el token al local storage
-        console.log( 'token again', await JSON.parse(localStorage.getItem('Mondav_token')))//Obtiene el token desde el local storage
+        //localStorage.setItem('Mondav_token',JSON.stringify(data.token)) //Manda el token al local storage
+        //alert('token again', await JSON.parse(localStorage.getItem('Mondav_token')))//Obtiene el token desde el local storage
+        
+        let cookie = JSON.stringify(data.token); //Manda el token como una cookie
+        document.cookie = "Mondav_token = "+cookie+"; max-age = 3600; path = /";
+        //alert('token again', await JSON.parse(document.cookie)) //Obtiene el token desde la cookie
         window.location="./index.html"; //Redirigir a la pagina
       } else {
         alert("Usuario o contraseña incorrectos.")
