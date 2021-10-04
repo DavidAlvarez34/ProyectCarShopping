@@ -18,7 +18,7 @@ module.exports = class loginModel {
         return result[0][0];
     }
     async update (updateAPassword){
-        let result = await sequelize.query("UPDATE usuario SET userPasword = '" + updateAPassword.userPasword +"'"+ " WHERE idUsuario = " + updateAPassword.idUsuario + ";");
+        let result = await sequelize.query("UPDATE usuario SET userPasword = '" + updateAPassword.userPasword +"' WHERE idUsuario = '" + updateAPassword.idUsuario + "';");
         return result;
     }
     async delete (loginId){
