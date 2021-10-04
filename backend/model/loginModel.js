@@ -5,7 +5,7 @@ module.exports = class loginModel {
         this.login = login;
     }
     async create (theUser){
-        let result = await sequelize.query("INSERT INTO usuario (nombre,apellido,email,userPasword) VALUES ('" + theUser.nombre + "','" + theUser.apellido + "','" + theUser.email + "','" + theUser.userPasword + "');");
+        let result = await sequelize.query("INSERT INTO usuario (nombre,apellido,email,userPasword) VALUES ('" + theUser.myName + "','" + theUser.lastName + "','" + theUser.email + "','" + theUser.itemPassword + "');");
         console.log(result);
         return result;
     }
