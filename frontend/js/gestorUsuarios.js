@@ -61,8 +61,8 @@ const updatePassword=async()=> {
   let itemPassword =document.getElementById("idUserUpdatePassword").value.toLowerCase();
 
   let dataUpdate = {
-    id: itemId,
-    available: itemPassword
+    idUsuario: itemId,
+    userPasword: itemPassword
 };
   let searching = await fetch("http://localhost:3000/updateLogin", {
     method: "POST",
