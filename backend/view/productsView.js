@@ -1,4 +1,5 @@
 const productController = require('../controller/productsController')
+const validation = require('../middlewares/midd')
 
 module.exports = async (app) => {
     //Crear productos
@@ -17,7 +18,7 @@ module.exports = async (app) => {
         res.send(productToSend);
     });
     //Modificar disponibilidad de productos
-    app.post('/updateProducts',async(req,res) => {
+    app.post('/updateProducts',validation.autenticarModi,async(req,res) => {
         let product = req.body;
         res.send(await productController.updateProduct(product));
     });
