@@ -48,9 +48,25 @@ function modificarButtonClicked() {
         let idProduct = document.getElementById("idProductM").value;
         let disp = document.getElementById("availableM").value;
 
+        try {
+            var lista = document.cookie.split(";"); //Se obtiene el valor de la cookie
+            for (i in lista) {
+            var busca = lista[i].search('Mondav_token');
+            if (busca > -1) {micookie=lista[i]}
+            }
+            var igual = micookie.indexOf("=");
+            var valor = micookie.substring(igual+1);
+            console.log(valor)
+        } catch (error) {
+            return alert("No tiene permitido realizar cambios en los productos.")
+        }
+        
+        let token = valor;
+
         let dataInsert = {
             id: idProduct,
-            available: disp
+            available: disp,
+            token: token
         };
         let url = await fetch('http://localhost:3000/updateProducts', {
             method: "POST",

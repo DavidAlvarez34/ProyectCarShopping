@@ -1,4 +1,5 @@
 const loginController = require('../controller/loginController');
+const validation = require('../middlewares/midd');
 
 module.exports = async (app) => {
     //Crear usuario
@@ -17,7 +18,7 @@ module.exports = async (app) => {
         res.send(await loginController.findLogin(loginId));
     });
     //Modificar password de usuario
-    app.post('/updateLogin',async(req,res) => {
+    app.post('/updateLogin',validation.autenticarModiU,async(req,res) => {
         let updateUser = req.body;
         res.send(await loginController.updateLogin(updateUser));
     });

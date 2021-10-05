@@ -33,4 +33,24 @@ const limitador = rateLimit({
     message: 'Limite de solicitudes exedido'
 })
 
-module.exports = {limitador, Autenticar, log, corsOption}
+autenticarModi = function (req,res,next) {
+    const {id,available,token} = req.body;
+    if(token != undefined){
+        return next()
+    }
+    else{
+        return res.status(400).json("No puedes modificar los productos")
+    }
+}
+
+autenticarModiU = function (req,res,next) {
+    const {idUsuario,userPasword,token} = req.body;
+    if(token != undefined){
+        return next()
+    }
+    else{
+        return res.status(400).json("No puedes modificar los usuarios")
+    }
+}
+
+module.exports = {limitador, Autenticar, log, corsOption, autenticarModi, autenticarModiU}

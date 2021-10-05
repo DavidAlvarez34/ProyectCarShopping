@@ -60,9 +60,25 @@ const updatePassword=async()=> {
   let itemId =document.getElementById("idUserUpdate").value.toLowerCase();
   let itemPassword =document.getElementById("idUserUpdatePassword").value.toLowerCase();
 
+  try {
+    var lista = document.cookie.split(";"); //Se obtiene el valor de la cookie
+    for (i in lista) {
+    var busca = lista[i].search('Mondav_token');
+    if (busca > -1) {micookie=lista[i]}
+    }
+    var igual = micookie.indexOf("=");
+    var valor = micookie.substring(igual+1);
+    console.log(valor)
+  } catch (error) {
+    return alert("No tiene permitido realizar cambios en los usuarios.")
+  }
+
+  let token = valor;
+
   let dataUpdate = {
     idUsuario: itemId,
-    userPasword: itemPassword
+    userPasword: itemPassword,
+    token: token
 };
   let searching = await fetch("http://localhost:3000/updateLogin", {
     method: "POST",
